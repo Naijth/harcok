@@ -1,3 +1,9 @@
+/**
+ * @param {Array} array 
+ * @param {HTMLElement} thead 
+ * @param {HTMLElement} tbody 
+ * Renders the table with the given parameters
+ */
 function renderTable(array, thead, tbody){
     for (let i = 0; i < array.length; i++) {
         if (i == 0) {
@@ -40,6 +46,11 @@ function renderTable(array, thead, tbody){
     }
 }
 
+/**
+ * @param {HTMLElement} inputElement 
+ * @param {String} inputErrorMessage 
+ * @returns false if the input's value is an empty string + writes in the error stuff. true if it aint an empty string in the input
+ */
 function validateFormField(inputElement, inputErrorMessage){
     if (inputElement.value == ''){
         const parentElement = inputElement.parentElement;
@@ -53,6 +64,11 @@ function validateFormField(inputElement, inputErrorMessage){
     }
 }
 
+/**
+ * @param {HTMLElement} inputSideElement 
+ * @param {HTMLElement} inputNumbersElement 
+ * @returns if one's value is an empty string and the other isn't it returns false using the function above, otherwise true
+ */
 function validateTwoForces(inputSideElement, inputNumbersElement){
     if (inputSideElement.value != '' && inputNumbersElement.value == ''){
         return validateFormField(inputNumbersElement, "Mind két mezőt ki kell tölteni!");
@@ -62,6 +78,9 @@ function validateTwoForces(inputSideElement, inputNumbersElement){
     return true;
 }
 
+/**
+ * renders the form using renderForm
+ */
 function renderForm() {
     const form = document.createElement('form');
     form.id = 'form';
@@ -79,6 +98,13 @@ function renderForm() {
     form.appendChild(button);
 }
 
+/**
+ * @param {HTMLElement} form 
+ * @param {String} type 
+ * @param {String} labelText 
+ * @param {String} id 
+ * This is what renderForm uses to make each line of the form
+ */
 function formField(form, type, labelText, id){
     const mainDiv = document.createElement('div');
     form.appendChild(mainDiv);
